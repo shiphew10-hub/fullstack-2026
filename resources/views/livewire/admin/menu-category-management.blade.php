@@ -13,8 +13,21 @@
                         type="text" 
                         name="name" 
                         id="name"
-                        class="w-full py-2 px-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 outline-none"
+                        class="w-full py-2 px-4 border border-gray-300  focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 outline-none"
                         placeholder="Enter category name"
+                    >
+                </div>
+
+                <div>
+                    <label for="name" class="block text-sm font-medium mb-2">
+                        Category Description
+                    </label>
+                    <input 
+                        type="text" 
+                        name="name" 
+                        id="name"
+                        class="w-full py-2 px-4 border border-gray-300  focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 outline-none"
+                        placeholder="Enter category Desc"
                     >
                 </div>
                 

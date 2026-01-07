@@ -11,3 +11,6 @@ php artisan make:livewire componentName
 npm run build
 //to automatically refresh the pages on changes
 npm run dev
+
+//for ui components we will use maryui
+https://mary-ui.com/docs/installation
