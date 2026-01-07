@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class MenuCategory extends Model
 {
-    //
+    protected $fillable = [
+        'name',
+        'is_active',
+    ];
 }

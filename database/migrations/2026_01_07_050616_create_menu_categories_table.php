@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('menu_categories', function (Blueprint $table) {
-            $table->id(); // primary key and auto-increment
-            $table->string('name',100)->unique(); // category name, max 100 chars, unique
-            $table->boolean('is_active')->default(true); // active status
-            $table->timestamps(); // created_at and updated_at
+            $table->id();
+            $table->string('name',20)->unique();
+            $table->boolean('is_active')->default(true);
+            $table->timestamps();
         });
     }
 

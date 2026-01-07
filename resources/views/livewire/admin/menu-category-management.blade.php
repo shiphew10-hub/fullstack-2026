@@ -4,39 +4,24 @@
     <div class="grid grid-cols-1 md:grid-cols-2  gap-6">
         <div class="bg-white rounded-xl shadow-amber-200 shadow-md p-8">
             <h2 class="text-lg font-semibold mb-4">Add New Category</h2>
-            <form action="" class="space-y-6">
-                <div>
-                    <label for="name" class="block text-sm font-medium mb-2">
-                        Category Name
-                    </label>
-                    <input 
-                        type="text" 
-                        name="name" 
-                        id="name"
-                        class="w-full py-2 px-4 border border-gray-300  focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 outline-none"
-                        placeholder="Enter category name"
-                    >
-                </div>
-
-                <div>
-                    <label for="name" class="block text-sm font-medium mb-2">
-                        Category Description
-                    </label>
-                    <input 
-                        type="text" 
-                        name="name" 
-                        id="name"
-                        class="w-full py-2 px-4 border border-gray-300  focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 outline-none"
-                        placeholder="Enter category Desc"
-                    >
-                </div>
+            <form wire:submit.prevent="saveCategory" class="space-y-6">
+                <x-input 
+                    label="Category Name" 
+                    wire:model="name" 
+                    placeholder="Category Name" 
+                />
+ 
+                <x-toggle 
+                    label="Is Active" 
+                    wire:model="is_active" />
+                 <x-button 
+                    label="Save" 
+                    class="btn-secondary" 
+                    type="submit" 
+                    spinner="save3" 
+                 />
                 
-                <button 
-                    type="submit"
-                    class="w-full bg-blue-600 hover:bg-pink-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 shadow-sm hover:shadow-md"
-                >
-                    Add Category
-                </button>
+                
             </form>
         </div>
 
