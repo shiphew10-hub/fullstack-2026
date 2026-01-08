@@ -1,3 +1,9 @@
+requirements
+XAMPP or (mysql and php)
+composer
+nodejs
+git for windows
+
 Setup
 composer create-project larave/laravel projname
 cd projname
@@ -7,6 +13,9 @@ composer install
 //install livewire
 composer require livewire/livewire
 php artisan make:livewire componentName
+
+//to use icons we can take heroicons
+https://heroicons.com/
 
 //build the js and css
 npm run build
