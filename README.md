@@ -4,6 +4,14 @@ composer
 nodejs
 git for windows
 
+after you clone the project from github link
+https://github.com/gnongkynrih/fullstack-2026.git
+run this command
+npm install
+npm run dev
+composer install or composer update
+php artisan key:generate
+
 Setup
 composer create-project larave/laravel projname
 cd projname

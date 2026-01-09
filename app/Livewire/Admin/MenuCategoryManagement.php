@@ -14,6 +14,7 @@ class MenuCategoryManagement extends Component
     public $name;
     public $is_active;
     public $category_id;
+    public $confirmDelete = false;
 
     public function rules(){
         $rules = [
@@ -94,10 +95,22 @@ class MenuCategoryManagement extends Component
         //select * from menu_categories where id = $id
         $category = MenuCategory::find($id); //use to search by primary key
         $this->name = $category->name;
-        $this->is_active = $category->is_active;
+        $this->is_active = (bool) $category->is_active;
         $this->isEdit = true;
     }
-   
+   public function delete($id){
+    $this->category_id = $id; //store the id to delete
+    $this->confirmDelete = true; //show the modal form
+   }
+    public function destroy($id){
+        MenuCategory::find($id)->delete();
+        $this->toast(
+            type: 'success',
+            title: 'Category deleted successfully',
+            css: 'bg-primary-500 text-white'
+        );
+        $this->confirmDelete = false; //hide the modal form
+    }
     public function render()
     {
         return view('livewire.admin.menu-category-management', [
