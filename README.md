@@ -20,7 +20,9 @@ npm run dev
 composer install
 //install livewire
 composer require livewire/livewire
+//to create a new livewire component
 php artisan make:livewire componentName
+eg> php artisan make:livewire MenuItemManagement
 
 //to use icons we can take heroicons
 https://heroicons.com/
@@ -45,3 +47,5 @@ DB_PASSWORD=yourpassword
 
 //create migration file along with model
 php artisan make:model MenuCategory -m
+//to migrate the table
+php artisan migrate
