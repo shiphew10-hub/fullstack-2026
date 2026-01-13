@@ -51,6 +51,9 @@
 
         <x-card title="Existing Categories" subtitle="List of existing categories" shadow separator>
             <x-table :headers="$headers" :rows="$categories->items()">
+                @scope('cell_is_active', $cat)
+                    {{ $cat->is_active ? 'Yes' : 'No' }}
+                @endscope
                 @scope('actions', $cat)
                 <div class="flex gap-4">
                     <x-button icon="o-pencil" wire:click="edit({{ $cat->id }})" spinner class="bg-secondary-200 text-primary-600" />

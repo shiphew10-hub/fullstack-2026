@@ -49,3 +49,25 @@ DB_PASSWORD=yourpassword
 php artisan make:model MenuCategory -m
 //to migrate the table
 php artisan migrate
+
+//relationships
+we define relationships in models
+eg. for belongsto we use singular name
+eg for hasmany we use plural name
+
+ROLE BASED ACCESS CONTROL
+https://spatie.be/docs/laravel-permission/v6/installation-laravel
+install the package
+composer require spatie/laravel-permission
+//publish the migration
+php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+//run the migration
+php artisan migrate
+// The User model requires this trait
+use HasRoles;
+
+//TO create seeders
+php artisan make:seeder NameSeeder
+eg> php artisan make:seeder RoleAndPermissionSeeder
+//to seed the database
+php artisan db:seed --class=RoleAndPermissionSeeder

@@ -47,8 +47,8 @@
  
                 <x-menu-item title="Dashboard" icon="o-sparkles" link="/" />
                 <x-menu-sub title="Admin" icon="o-cog-6-tooth">
-                    <x-menu-item title="Menu Category" icon="o-archive-box" link="{{route('admin.menu-category-management')}}" />
-                    <x-menu-item title="Menu Items" icon="o-archive-box" link="{{route('admin.menu-item-management')}}" />
+                    <x-menu-item title="Menu Category" link="{{route('admin.menu-category-management')}}" />
+                    <x-menu-item title="Menu Items" link="{{route('admin.menu-item-management')}}" />
                 </x-menu-sub>
             </x-menu>
         </x-slot:sidebar>

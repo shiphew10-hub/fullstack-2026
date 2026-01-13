@@ -5,6 +5,7 @@ namespace App\Livewire\Admin;
 use Mary\Traits\Toast;
 use Livewire\Component;
 use App\Models\MenuCategory;
+use App\Models\MenuItem;
 
 class MenuCategoryManagement extends Component
 {
@@ -103,7 +104,17 @@ class MenuCategoryManagement extends Component
     $this->confirmDelete = true; //show the modal form
    }
     public function destroy($id){
+        if(MenuItem::where('menu_category_id',$id)->exists()){
+            $this->toast(
+                type: 'error',
+                title: 'Category cannot be deleted',
+            );
+            $this->confirmDelete = false; //hide the modal form
+            return;
+        }
         MenuCategory::find($id)->delete();
+        // $t = MenuCategory::find($id);
+        // $t->delete();
         $this->toast(
             type: 'success',
             title: 'Category deleted successfully',

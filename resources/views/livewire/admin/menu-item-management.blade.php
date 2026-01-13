@@ -11,6 +11,15 @@
     </div>
     <x-card title="Existing Menu Items" subtitle="List of existing menu items" shadow separator>
             <x-table :headers="$headers" :rows="$existingItems->items()">
+                @scope('cell_id', $item)
+                    {{ $loop->iteration }} <!-- this is to display the row number -->
+                @endscope
+                @scope('cell_menu_category_id', $item)
+                    {{ $item->menuCategory->name ?? '-' }}
+                @endscope
+                @scope('cell_is_active', $item)
+                    {{ $item->is_active ? 'Yes' : 'No' }}
+                @endscope
                 @scope('actions', $item)
                 <div class="flex gap-4">
                     <x-button icon="o-pencil" wire:click="edit({{ $item->id }})" spinner class="bg-secondary-200 text-primary-600" />
@@ -53,8 +62,18 @@
     
             <x-slot:actions>
                 <x-button label="Cancel" wire:click="closeModal" />
-                <x-button label="Save" wire:click="saveItem" spinner="save3" class="btn-primary" />
+                <x-button label="{{$isEdit === false ? 'Save' : 'Update'}}" wire:click="saveItem" spinner="save3" class="btn-primary" />
             </x-slot:actions>
         </x-form>
     </x-modal>
+
+    <x-modal wire:model="showDelete" title="Delete" class="backdrop-blur">
+        Are you sure you want to delete
+    
+        <x-slot:actions>
+            <x-button label="Cancel" wire:click="resetForm" />
+            <x-button label="Yes" wire:click="destroy({{ $item_id }})" spinner class="bg-primary-400 text-white" />
+        </x-slot:actions>
+    </x-modal>
+    
 </div>
